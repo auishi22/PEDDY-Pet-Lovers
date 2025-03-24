@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEDDY</title>
+    <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon" />
+
+    <!-- Tailwind & DaisyUI Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- customised CSS -->
+    <style>
+      .lato {
+        font-family: "Lato", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="lato">
+    <!-- Header Section -->
+    <header class="container mx-auto space-y-14">
+      <!-- Navbar -->
+      <nav>
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
+            <div class="flex items-center gap-4">
+              <img src="./images/logo.webp" alt="" />
+              <h1 class="text-3xl font-bold">Peddy</h1>
+            </div>
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <img
+              class="w-10"
+              src="https://img.icons8.com/?size=100&id=H101gtpJBVoh&format=png&color=000000"
+              alt=""
+            />
+          </div>
+        </div>
+      </nav>
+
+      <!-- Banner Section -->
+      <section class="my-14">
+        <div class="space-y-6 text-center">
+          <p class="text-gray-400 text-2xl font-bold">
+            Bringing Families Together ❤️‍🔥
+          </p>
+          <h1 class="text-7xl font-extrabold">
+            Your Path to Adoption <br />
+            Starts Here
+          </h1>
+          <p class="">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout.<br />
+            The point of using Lorem Ipsum is that it has a.
+          </p>
+          <button class="bg-[#0E7A81] text-white px-8 py-4 rounded-xl">
+            View More
+          </button>
+        </div>
+        <div class="flex justify-center my-8">
+          <img src="./images/pet.webp" alt="" />
+        </div>
+      </section>
+    </header>
+
+    <!-- Main Section -->
+    <main class="container mx-auto space-y-14">
+      <!-- Main Section heading -->
+      <div class="space-y-6 text-center my-12">
+        <h1 class="text-5xl font-extrabold">Adopt Your Best Friend</h1>
+        <p class="">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout.<br />
+          The point of using Lorem Ipsum is that it has a.
+        </p>
+      </div>
+
+      <!-- Categories Section -->
+      <div id="categories-container" class="flex justify-around px-20">
+        <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg px-14 btn-outline">
+            <img class="w-8" src="https://img.icons8.com/?size=100&id=THQkgU7mVcVU&format=png&color=000000" alt="">
+            <h1>Dogs</h1>
+        </button>
+        <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg px-14 btn-outline">
+            <img class="w-8" src="https://img.icons8.com/?size=100&id=THQkgU7mVcVU&format=png&color=000000" alt="">
+            <h1>Dogs</h1>
+        </button>
+        <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg px-14 btn-outline">
+            <img class="w-8" src="https://img.icons8.com/?size=100&id=THQkgU7mVcVU&format=png&color=000000" alt="">
+            <h1>Dogs</h1>
+        </button>
+        <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg px-14 btn-outline">
+            <img class="w-8" src="https://img.icons8.com/?size=100&id=THQkgU7mVcVU&format=png&color=000000" alt="">
+            <h1>Dogs</h1>
+        </button>
+      </div>
+
+      <!-- Sorting Section -->
+      <div></div>
+
+      <!-- Pet card Container -->
+      <div></div>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <footer class="footer bg-black text-primary-content p-10 ">
+        <div>
+            <div class="flex items-center gap-4">
+              <img src="./images/logo.webp" alt="" />
+              <h1 class="text-3xl font-bold">Peddy</h1>
+            </div>
+            <p>
+              Location: av. Washington 165, NY CA 54003 <br />
+              Phone: +31 85 964 47 25 <br />
+              Email: info@yourdomain.com <br />
+              Openings hours: 9.00 AM - 5.00 PM
+            </p>
+          
+          <nav>
+            <div class="grid grid-flow-col gap-4">
+              <img
+                class="w-8"
+                src="https://img.icons8.com/?size=100&id=uLWV5A9vXIPu&format=png&color=000000"
+                alt=""
+              />
+              <img
+                class="w-8"
+                src="https://img.icons8.com/?size=100&id=32323&format=png&color=000000"
+                alt=""
+              />
+              <img
+                class="w-8"
+                src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000"
+                alt=""
+              />
+            </div>
+          </nav>
+        </div>
+        <nav>
+          <h6 class="font-bold text-lg">Useful Links</h6>
+          <a class="link link-hover">Branding</a>
+          <a class="link link-hover">Design</a>
+          <a class="link link-hover">Marketing</a>
+          <a class="link link-hover">Advertisement</a>
+        </nav>
+        <div>
+          <h6 class="font-bold text-lg">Drop a Message</h6>
+          <fieldset class="form-control w-80">
+            <div class="flex flex-col gap-4">
+              <input
+                type="text"
+                placeholder="Enter Your Email"
+                class="input input-bordered join-item"
+              />
+              <button class="btn text-white border-0 bg-[#0E7A81]">
+                Subscribe
+              </button>
+            </div>
+          </fieldset>
+        </div>
+      </footer>
+    </footer>
+
+    <!-- Script -->
+     <script src="./js/index.js"></script>
+  </body>
+</html>
