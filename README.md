@@ -1,1 +1,1 @@
-#PEDDY- A Pet Adoption Platform
+## **PEDDY - A Pet Adoption Platform**
