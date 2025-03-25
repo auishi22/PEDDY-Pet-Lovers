@@ -94,12 +94,12 @@ const displayAllPets = (pets) => {
        </div>
     
     `;
-    return
-  }else{
+    return;
+  } else {
     petCardContainer.classList.add("grid");
   }
   pets.forEach((pet) => {
-    const { pet_name, image, breed, date_of_birth, gender, price } = pet;
+    const { pet_name, image, breed, date_of_birth, gender, price, petId } = pet;
     petCardContainer.innerHTML += `
     <div class="card  w-[360px] border-2">
             <figure class="px-6 pt-6">
@@ -119,13 +119,24 @@ const displayAllPets = (pets) => {
               <div class="card-actions flex justify-around">
                 <button class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]"><img class="w-8" src="https://img.icons8.com/?size=100&id=U6uSXVbuA1xU&format=png&color=000000" alt=""></button>
                 <button class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Adopt</button>
-                <button class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Details</button>
+                <button onclick="petDetails(${petId})" class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Details</button>
               </div>
             </div>
           </div>
     `;
     console.log(pet);
   });
+};
+
+// Show the pet details in modal
+const petDetails = async (petId) => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/peddy/pet/${petId}`
+  );
+  const data = await res.json();
+  console.log(data.petData);
+
+  my_modal_5.showModal();
 };
 
 // Handle show all button

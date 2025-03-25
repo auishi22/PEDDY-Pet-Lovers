@@ -170,7 +170,10 @@
       <!-- Pet card Container -->
       <section class="lg:flex justify-between gap-10">
         <!-- pet card -->
-        <div id="pet-card-container" class="grid grid-cols-1 lg:grid-cols-3  gap-5">
+        <div
+          id="pet-card-container"
+          class="grid grid-cols-1 lg:grid-cols-3 gap-5"
+        >
           <!-- <div class="card  w-[360px] border-2">
             <figure class="px-6 pt-6">
               <img
@@ -241,19 +244,40 @@
 
         <!-- selected pet  -->
         <div class="border-2 rounded-2xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 p-4">
-              <img class="w-40" src="./images/pets.png" alt="">
-              <img class="w-40" src="./images/pets.png" alt="">
-              <img class="w-40" src="./images/pets.png" alt="">
-            </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 p-4">
+            <img class="w-40" src="./images/pets.png" alt="" />
+            <img class="w-40" src="./images/pets.png" alt="" />
+            <img class="w-40" src="./images/pets.png" alt="" />
+          </div>
         </div>
       </section>
-      
-      <!-- Show all button -->
-       <div class="text-center ">
-        <button  id="show-all-btn" onclick="handleShowAll()" class="hidden btn px-10 text-white border-2 bg-[#0E7A81] ">Show All</button>
-       </div>
 
+      <!-- Show all button -->
+      <div class="text-center">
+        <button
+          id="show-all-btn"
+          onclick="handleShowAll()"
+          class="hidden btn px-10 text-white border-2 bg-[#0E7A81]"
+        >
+          Show All
+        </button>
+      </div>
+
+      <!-- Show Modal -->
+      <!-- Open the modal using ID.showModal() method -->
+      <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <h3 class="text-lg font-bold">Hello!</h3>
+          <p class="py-4">Press ESC key or click the button below to close</p>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </main>
 
     <!-- Footer section -->
