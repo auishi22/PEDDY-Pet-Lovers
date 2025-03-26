@@ -10,11 +10,6 @@ const loadCategories = async () => {
   displayCategories(categories);
 };
 
-// {
-//   "id": 1,
-//   "category": "Cat",
-//   "category_icon": "https://i.ibb.co.com/N7dM2K1/cat.png"
-// }
 // Here display the categories in button
 const displayCategories = (categories) => {
   const categoriesContainer = document.getElementById("categories-container");
@@ -53,19 +48,6 @@ const loadAllPets = async () => {
   const pets = data.pets;
   displayAllPets(pets);
 };
-
-// {
-//   "petId": 1,
-//   "breed": "Golden Retriever",
-//   "category": "Dog",
-//   "date_of_birth": "2023-01-15",
-//   "price": 1200,
-//   "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-//   "gender": "Male",
-//   "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-//   "vaccinated_status": "Fully",
-//   "pet_name": "Sunny"
-// }
 
 // Display All pets
 const displayAllPets = (pets) => {
@@ -118,7 +100,7 @@ const displayAllPets = (pets) => {
               <hr>
               <div class="card-actions flex justify-around">
                 <button class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]"><img class="w-8" src="https://img.icons8.com/?size=100&id=U6uSXVbuA1xU&format=png&color=000000" alt=""></button>
-                <button class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Adopt</button>
+                <button onclick="selectPet(${petId})" class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Adopt</button>
                 <button onclick="petDetails(${petId})" class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Details</button>
               </div>
             </div>
@@ -134,9 +116,69 @@ const petDetails = async (petId) => {
     `https://openapi.programming-hero.com/api/peddy/pet/${petId}`
   );
   const data = await res.json();
-  console.log(data.petData);
+  const details = data.petData;
+
+  const {
+    breed,
+    date_of_birth,
+    price,
+    image,
+    gender,
+    pet_details,
+    vaccinated_status,
+    pet_name,
+  } = details;
+
+  const modalContainer = document.getElementById("modal-container");
+  modalContainer.innerHTML = `
+  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box space-y-3">
+          <div>
+            <img class="w-full" src=${image} alt="" />
+          </div>
+          <h3 class="text-2xl font-bold">${pet_name}</h3>
+          <p class="text-gray-500">Breed: ${breed}</p>
+          <p class="text-gray-500">Birth: ${date_of_birth}</p>
+          <p class="text-gray-500">Gender: ${gender}</p>
+          <p class="text-gray-500">Price : ${price}</p>
+          <p class="text-gray-500">Vaccinated Status : ${vaccinated_status}</p>
+          <hr />
+          <h3 class="text-lg font-bold">details Information</h3>
+          <p class="text-gray-500">
+            ${pet_details}
+          </p>
+          <div>
+            <form method="dialog">
+              <button
+                class="btn bg-[#0E7A811A ] border-2 border-[#0E7A81] text-[#0E7A81] w-full"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+  `;
 
   my_modal_5.showModal();
+};
+
+// pet selected
+const selectPet = async (id) => {
+  console.log(id);
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/peddy/pet/${id}`
+  );
+  const data = await res.json();
+  const petDataDetails = data.petData;
+  console.log(petDataDetails);
+
+  const selectPetContainer = document.getElementById("select-pet-container");
+ 
+  selectPetContainer.innerHTML += `
+  <img class="w-40 rounded-xl" src=${petDataDetails.image} alt="" />
+  `;
+  
 };
 
 // Handle show all button
