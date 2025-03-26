@@ -31,22 +31,30 @@ const displayCategories = (categories) => {
 
 // load the categories pets
 const loadcategoriesPets = async (petName) => {
-  const res = await fetch(
-    ` https://openapi.programming-hero.com/api/peddy/category/${petName}`
-  );
-  const data = await res.json();
-  const categoryPets = data.data;
-  displayAllPets(categoryPets);
+  loadSpinner(true);
+  setTimeout(async () => {
+    const res = await fetch(
+      ` https://openapi.programming-hero.com/api/peddy/category/${petName}`
+    );
+    const data = await res.json();
+    const categoryPets = data.data;
+    displayAllPets(categoryPets);
+    loadSpinner(false); // Hide spinner after data is loaded
+  }, 1000);
 };
 
 // Load all the pets
 const loadAllPets = async () => {
-  const res = await fetch(
-    " https://openapi.programming-hero.com/api/peddy/pets"
-  );
-  const data = await res.json();
-  const pets = data.pets;
-  displayAllPets(pets);
+  loadSpinner(true);
+  setTimeout(async () => {
+    const res = await fetch(
+      "https://openapi.programming-hero.com/api/peddy/pets"
+    );
+    const data = await res.json();
+    const pets = data.pets;
+    displayAllPets(pets);
+    loadSpinner(false); // Hide spinner after data is loaded
+  }, 1000);
 };
 
 // Display All pets
@@ -60,7 +68,7 @@ const displayAllPets = (pets) => {
     showAllBtn.classList.remove("hidden");
   }
   if (pets.length > 6 && !showAll) {
-    pets = pets.slice(0, 6);
+    pets = pets.slice(0, 3);
   }
 
   petCardContainer.innerHTML = "";
@@ -100,14 +108,15 @@ const displayAllPets = (pets) => {
               <hr>
               <div class="card-actions flex justify-around">
                 <button class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]"><img class="w-8" src="https://img.icons8.com/?size=100&id=U6uSXVbuA1xU&format=png&color=000000" alt=""></button>
-                <button onclick="selectPet(${petId})" class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Adopt</button>
-                <button onclick="petDetails(${petId})" class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Details</button>
+                <button id='btn-${petId}' onclick="selectPet(${petId})" class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Adopt</button>
+                <button  onclick="petDetails(${petId})" class="btn bg-white border-2 border-[#0E7A81] text-[#0E7A81]">Details</button>
               </div>
             </div>
           </div>
     `;
     console.log(pet);
   });
+  loadSpinner(false);
 };
 
 // Show the pet details in modal
@@ -174,17 +183,27 @@ const selectPet = async (id) => {
   console.log(petDataDetails);
 
   const selectPetContainer = document.getElementById("select-pet-container");
- 
+
   selectPetContainer.innerHTML += `
   <img class="w-40 rounded-xl" src=${petDataDetails.image} alt="" />
   `;
-  
+};
+
+// loading spinner
+const loadSpinner = (loading) => {
+  const spinner = document.getElementById("spinner");
+  if (loading) {
+    spinner.classList.remove("hidden");
+  } else {
+    spinner.classList.add("hidden");
+  }
 };
 
 // Handle show all button
 const handleShowAll = () => {
   showAll = true;
   loadAllPets();
+  
 };
 loadAllPets();
 loadCategories();
