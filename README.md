@@ -23,7 +23,7 @@ Peddy is a modern, fully responsive pet adoption website designed to connect pot
 
 ## Live Demo
 
-Experience Peddy in action by visiting the live demo: [PET PEDDY]([https://example.com](https://peddy-a-adoption-platform.netlify.app/))
+Experience Peddy in action by visiting the live demo: [PET PEDDY](https://peddy-a-adoption-platform.netlify.app/)
 
 ## Project Structure
 
